@@ -1,0 +1,26 @@
+AddType text/html .shtml
+AddHandler server-parsed .shtml
+Options +Includes
+ErrorDocument 404 /404.shtml
+
+RewriteEngine On
+
+# If no rootdirectory (weekly, group, 12month, 6month or 3month) is give, use rootdir "overall"
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !style*
+RewriteCond %{REQUEST_FILENAME} !weekly*
+RewriteCond %{REQUEST_FILENAME} !group*
+RewriteCond %{REQUEST_FILENAME} !12month*
+RewriteCond %{REQUEST_FILENAME} !6month*
+RewriteCond %{REQUEST_FILENAME} !3month*
+RewriteCond %{REQUEST_FILENAME} !overall*
+RewriteRule ^(.*)$	overall/$1 [L]
+
+# Rewrite request to match file structure
+
+RewriteRule ^(weekly|group|12month|6month|3month|overall)\/((\d+x\d+)\/)?(.*).(jpg|jpeg)$ images/$1/$4_$3.jpeg
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*).(jpg|jpeg)$ /img.php
