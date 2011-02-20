@@ -30,7 +30,7 @@ class AlbumChart {
 		if($request->isMalformed()) {
 			$log->logGeneration($request, $hostid, true);
 			$log->logString("   ERROR: " . $request->getMalformedString());
-			die($request->getMalformedString() . " Use the generator: http://lastfm.obsessive-media.de/generator.shtml");
+			die($request->getMalformedString() . ((SITE != '') ? "<br />Please see " . SITE . " for further help" : ""));
 		}
 		
 		if($request->getCharttype() == "group") {
