@@ -8,5 +8,4 @@ if(SITE != '') {
 }
 
 ?>
-
-Last.fm generator
+No parameters given.
