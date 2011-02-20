@@ -23,11 +23,11 @@ Installation
  2. Create a copy of `defines.dist.php` and name it `defines.php`
  3. Fill the missing values in `defines.php` with your API key, your API secret and the cleanup key
  4. Create the following folders and set the permissions to allow PHP to write there
-   - `images/overall`
-   - `images/weekly`
-   - `images/3month`
-   - `images/6month`
-   - `images/12month`
+     - `images/overall`
+     - `images/weekly`
+     - `images/3month`
+     - `images/6month`
+     - `images/12month`
  5. To enable logging you also need to create the file `log.txt`
  
 Maintenance
