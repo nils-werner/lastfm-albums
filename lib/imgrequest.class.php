@@ -111,6 +111,8 @@ class ImgRequest {
 		
 		if(isset($_GET['bgcolor']))
 			$bgcolor = sscanf($_GET['bgcolor'], '%2x%2x%2x');
+		else
+			$bgcolor = sscanf("FFFFFF", '%2x%2x%2x');
 			
 		$this->pixels = $pixels;
 		$this->spacing = $spacing;
@@ -132,19 +134,19 @@ class ImgRequest {
 	public function isSuperuser() {
 		if(is_null(SUPERUSER)) return false;
 		
-		return in_array($this->username, SUPERUSERS);		
+		return in_array($this->username, explode(',',SUPERUSERS));
 	}
 	
 	public function isBanned() {
 		if(is_null(BLACKLIST)) return false;
 		
-		return in_array($this->username, BLACKLIST);	
+		return in_array($this->username, explode(',',BLACKLIST));
 	}
 	
 	public function isAllowed() {
 		if(is_null(WHITELIST)) return !$this->isBanned();
 		
-		return in_array($this->username, WHITELIST);	
+		return in_array($this->username, explode(',',WHITELIST));
 	}
 	
 	public function getExtension() {
