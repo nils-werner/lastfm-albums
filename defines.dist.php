@@ -11,9 +11,11 @@ define('SITE', '');
 // The key to run the cleanup-process
 define('KEY', '');
 
-// An array containing all allowed Last.fm usernames, set to NULL if all names are allowed
+// An csv string ('user1,user2') containing all allowed Last.fm usernames, set to NULL if all names are allowed
 define('WHITELIST', NULL);
-// An array containing all Last.fm users allowed to override some values
+// An csv string ('user1,user2') containing all NOT allowed Last.fm usernames, set to NULL if all names are allowed
+define('BLACKLIST', NULL);
+// An csv string ('user1,user2') containing all Last.fm users allowed to override some values
 define('SUPERUSERS', NULL);
 
 // Log all operations
