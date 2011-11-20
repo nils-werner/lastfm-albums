@@ -1,6 +1,6 @@
 <?php 
 
-	
+	require_once("defines.php");
 	
 	if(KEY == '' || $_GET['key'] != KEY) {
 		header("Location: /");
